@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 const Profile = (props) => {
     const { auth, profile } = props
     if (!auth.uid) return <Redirect to='/' />
