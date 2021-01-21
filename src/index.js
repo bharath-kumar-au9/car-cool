@@ -1,8 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/css/index.css';
-import App from './js/containers/App';
-import registerServiceWorker from './registerServiceWorker';
+import './index.css';
+import { Provider } from "react-redux";
+import store from "./Store";
+import Routes from "./Routes/routes";
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+store.firebaseAuthIsReady.then(() => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <Routes />
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+})
